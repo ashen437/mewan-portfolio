@@ -1,0 +1,9 @@
+[build]
+  publish = "dist"
+  command = "yarn build"
+
+# Handle single-page application routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200 
