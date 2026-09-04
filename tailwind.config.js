@@ -8,14 +8,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        paper: '#ebe9e3',
-        surface: '#e0ddd4',
-        'surface-2': '#d8d5cb',
-        ink: '#2b2b2b',
-        muted: '#4e4e4e',
-        yellow: {
-          DEFAULT: '#fff388',
-          hover: '#fff066',
+        paper: '#fafafa',
+        surface: '#f0efec',
+        'surface-2': '#e7e5e0',
+        ink: '#0a0a0a',
+        muted: '#6b6b6b',
+        accent: {
+          DEFAULT: '#ff3d00',
+          hover: '#e63600',
         },
       },
       fontFamily: {
