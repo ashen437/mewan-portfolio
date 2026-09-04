@@ -548,27 +548,6 @@ ul {
 .hero-right .img-reveal {
 	height: clamp(440px, 60vh, 600px);
 }
-.hero-graphic {
-	width: 100%;
-	height: 100%;
-	background: var(--surface);
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	gap: 20px;
-	color: var(--ink);
-}
-.hero-graphic svg {
-	width: 96px;
-	height: 96px;
-	opacity: 0.85;
-}
-.hero-graphic-label {
-	font-family: var(--serif);
-	font-size: 1.6rem;
-	letter-spacing: 0.01em;
-}
 .reveal-overlay {
 	position: absolute;
 	inset: 0;

@@ -80,21 +80,12 @@ const Hero = () => {
             <span className="corner tl" aria-hidden="true"></span>
             <span className="corner br" aria-hidden="true"></span>
             <div className="img-reveal angled" ref={panelRef} data-image-reveal>
-              <div className="hero-graphic">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round">
-                  <rect x="3" y="7" width="18" height="13" rx="1"></rect>
-                  <path d="M3 7l3-4h4l-3 4"></path>
-                  <path d="M10 7l3-4h4l-3 4"></path>
-                  <path d="M17 7l2-3"></path>
-                </svg>
-                <div className="hero-graphic-label">{brand.name}</div>
-              </div>
+              <img src="/images/owner.png" alt="Gihan Mewantha (Mewan), CEO of T-Frame Media" loading="eager" />
               <span className="reveal-overlay angled"></span>
             </div>
             <div className="award-card">
-              <div className="award-eyebrow">{hero.award.eyebrow}</div>
-              <div className="award-title">{hero.award.title}</div>
-              <div className="award-sub">{hero.award.sub}</div>
+              <div className="award-eyebrow">{hero.founder.eyebrow}</div>
+              <div className="award-title">{hero.founder.title}</div>
             </div>
             <span className="ghost-square" aria-hidden="true"></span>
           </div>

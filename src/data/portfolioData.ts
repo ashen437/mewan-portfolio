@@ -40,10 +40,9 @@ export const hero = {
     { num: `${brandsWorkedWith.length}+`, cap: "Brands Partnered" },
     { num: "7+", cap: "Productions Delivered" },
   ],
-  award: {
-    eyebrow: "Latest Credit",
-    title: "Premiye",
-    sub: "Executive Producer — Feature Film",
+  founder: {
+    eyebrow: "CEO, T-Frame Media",
+    title: "Mewan Liyanage",
   },
 };
 
