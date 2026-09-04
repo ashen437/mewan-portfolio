@@ -1,38 +1,41 @@
-import { focusAreas } from "../../data/portfolioData";
+import { services } from "../../data/portfolioData";
 import { useReveal } from "../../hooks/useReveal";
 
 const icons = {
-  home: (
+  target: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
-      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-      <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      <circle cx="12" cy="12" r="9"></circle>
+      <circle cx="12" cy="12" r="5"></circle>
+      <circle cx="12" cy="12" r="1"></circle>
     </svg>
   ),
-  globe: (
+  film: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="12" r="10"></circle>
-      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-      <line x1="2" y1="12" x2="22" y2="12"></line>
+      <rect x="3" y="7" width="18" height="13" rx="1"></rect>
+      <path d="M3 7l3-4h4l-3 4"></path>
+      <path d="M10 7l3-4h4l-3 4"></path>
+      <path d="M17 7l2-3"></path>
     </svg>
   ),
-  grid: (
+  users: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
-      <rect x="3" y="3" width="18" height="18" rx="1"></rect>
-      <line x1="3" y1="9" x2="21" y2="9"></line>
-      <line x1="9" y1="21" x2="9" y2="9"></line>
+      <path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"></path>
+      <circle cx="9" cy="7" r="4"></circle>
+      <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+      <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
     </svg>
   ),
 };
 
-const FocusCard = ({ area }: { area: (typeof focusAreas)[number] }) => {
+const ServiceCard = ({ service }: { service: (typeof services)[number] }) => {
   const revealRef = useReveal<HTMLDivElement>();
   return (
     <div className="focus-card" ref={revealRef} data-reveal>
-      <div className="icon-chip">{icons[area.icon]}</div>
-      <h3 className="focus-title">{area.title}</h3>
-      <p>{area.desc}</p>
+      <div className="icon-chip">{icons[service.icon]}</div>
+      <h3 className="focus-title">{service.title}</h3>
+      <p>{service.desc}</p>
       <ul className="dot-list">
-        {area.items.map((item) => (
+        {service.items.map((item) => (
           <li key={item}>{item}</li>
         ))}
       </ul>
@@ -46,12 +49,12 @@ const DesignFocus = () => {
     <section className="section focus">
       <div className="wrap">
         <header className="sec-head center" ref={headRef} data-reveal>
-          <span className="eyebrow">What I Do</span>
-          <h2 className="sec-title">Design Focus</h2>
+          <span className="eyebrow">What We Do</span>
+          <h2 className="sec-title">Our Services</h2>
         </header>
         <div className="focus-grid">
-          {focusAreas.map((area) => (
-            <FocusCard area={area} key={area.title} />
+          {services.map((service) => (
+            <ServiceCard service={service} key={service.title} />
           ))}
         </div>
       </div>

@@ -545,6 +545,30 @@ ul {
 .hero-right .img-reveal img {
 	height: clamp(440px, 60vh, 600px);
 }
+.hero-right .img-reveal {
+	height: clamp(440px, 60vh, 600px);
+}
+.hero-graphic {
+	width: 100%;
+	height: 100%;
+	background: var(--surface);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 20px;
+	color: var(--ink);
+}
+.hero-graphic svg {
+	width: 96px;
+	height: 96px;
+	opacity: 0.85;
+}
+.hero-graphic-label {
+	font-family: var(--serif);
+	font-size: 1.6rem;
+	letter-spacing: 0.01em;
+}
 .reveal-overlay {
 	position: absolute;
 	inset: 0;
@@ -762,6 +786,118 @@ ul {
 	margin-top: 70px;
 }
 
+/* ============ BRANDS ============ */
+.brand-wall {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 1px;
+	border: 1px solid var(--ink);
+	background: var(--ink);
+}
+.brand-tile {
+	background: var(--surface);
+	padding: 32px 20px;
+	text-align: center;
+	font-family: var(--serif);
+	font-size: 1.15rem;
+	line-height: 1.2;
+	transition: background 0.3s var(--ease), color 0.3s var(--ease);
+}
+.brand-tile:hover {
+	background: var(--yellow);
+}
+
+/* ============ PRODUCTIONS / CREDITS ============ */
+.credit-groups {
+	display: flex;
+	flex-direction: column;
+	gap: 56px;
+}
+.credit-group-title {
+	font-size: 12px;
+	font-weight: 500;
+	text-transform: uppercase;
+	letter-spacing: 0.16em;
+	color: var(--muted);
+	padding-bottom: 14px;
+	margin-bottom: 26px;
+	border-bottom: 1px solid var(--ink);
+}
+.credit-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 20px;
+}
+.credit-card {
+	border: 1px solid var(--ink);
+	background: var(--surface);
+	padding: 26px 24px;
+	transition: all 0.3s var(--ease);
+}
+.credit-card:hover {
+	background: var(--surface-2);
+	transform: translateY(-4px);
+	box-shadow: 6px 6px 0 var(--ink);
+}
+.credit-title {
+	font-family: var(--serif);
+	font-size: 1.4rem;
+	margin-bottom: 6px;
+}
+
+/* ============ PARTNERSHIPS ============ */
+.partners-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 28px;
+	margin-bottom: 56px;
+}
+.partner-card {
+	border: 1px solid var(--ink);
+	background: var(--surface);
+	padding: 32px 30px;
+}
+.partner-company {
+	font-family: var(--serif);
+	font-size: 1.5rem;
+	margin-bottom: 8px;
+}
+.partner-with {
+	color: var(--muted);
+	font-size: 14px;
+}
+.consultant-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+}
+.consultant-tag {
+	border: 1px solid var(--ink);
+	background: var(--yellow);
+	padding: 12px 22px;
+	font-family: var(--serif);
+	font-size: 1.05rem;
+}
+
+/* ============ TALENT ============ */
+.talent-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 1px;
+	border: 1px solid var(--ink);
+	background: var(--ink);
+}
+.talent-tile {
+	background: var(--surface);
+	padding: 28px 18px;
+	text-align: center;
+}
+.talent-name {
+	font-family: var(--serif);
+	font-size: 1.1rem;
+	line-height: 1.25;
+}
+
 /* ============ ABOUT ============ */
 .about {
 	background: var(--surface);
@@ -781,6 +917,48 @@ ul {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
+}
+.about-visual {
+	position: relative;
+	min-height: 460px;
+	border: 1px solid var(--ink);
+	background: var(--surface);
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 18px;
+	padding: 40px;
+}
+.about-visual .blueprint-grid {
+	opacity: 0.12;
+}
+.about-visual-row {
+	position: relative;
+	z-index: 1;
+	display: flex;
+	align-items: baseline;
+	gap: 18px;
+	padding-bottom: 18px;
+	border-bottom: 1px solid rgba(43, 43, 43, 0.18);
+}
+.about-visual-row:last-child {
+	border-bottom: 0;
+	padding-bottom: 0;
+}
+.about-visual-num {
+	font-family: var(--serif);
+	font-size: clamp(2.4rem, 4vw, 3.2rem);
+	line-height: 1;
+	flex: none;
+	min-width: 110px;
+}
+.about-visual-label {
+	font-size: 12px;
+	font-weight: 500;
+	text-transform: uppercase;
+	letter-spacing: 0.14em;
+	color: var(--muted);
 }
 .about-text {
 	display: flex;
@@ -1102,6 +1280,16 @@ ul {
 	.focus-grid {
 		grid-template-columns: 1fr;
 	}
+	.brand-wall,
+	.talent-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	.credit-grid {
+		grid-template-columns: 1fr 1fr;
+	}
+	.partners-grid {
+		grid-template-columns: 1fr;
+	}
 	.approach {
 		flex-direction: column;
 		align-items: stretch;
@@ -1136,6 +1324,13 @@ ul {
 		gap: 44px;
 	}
 	.quote-grid {
+		grid-template-columns: 1fr;
+	}
+	.brand-wall,
+	.talent-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	.credit-grid {
 		grid-template-columns: 1fr;
 	}
 	.stats-grid {

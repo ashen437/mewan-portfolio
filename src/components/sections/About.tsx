@@ -1,44 +1,32 @@
 import { about } from "../../data/portfolioData";
-import { useReveal, useImageReveal } from "../../hooks/useReveal";
-import { mergeRefs } from "../../lib/utils";
+import { useReveal } from "../../hooks/useReveal";
 
 const About = () => {
-  const portraitWrapRef = useReveal<HTMLDivElement>();
-  const imgRef = useImageReveal<HTMLDivElement>();
+  const visualRef = useReveal<HTMLDivElement>();
   const copyRef = useReveal<HTMLDivElement>();
 
   return (
     <section id="about" className="section about">
       <div className="wrap about-grid">
-        <div
-          className="img-reveal framed about-portrait"
-          ref={mergeRefs(portraitWrapRef, imgRef)}
-          data-image-reveal
-          data-reveal
-        >
-          <img src={about.portrait} alt="Portrait of Marlowe Fenn" />
-          <span className="reveal-overlay"></span>
+        <div className="about-visual" ref={visualRef} data-reveal>
+          <div className="blueprint-grid" aria-hidden="true"></div>
+          {about.highlights.map((h) => (
+            <div className="about-visual-row" key={h.label}>
+              <div className="about-visual-num">{h.num}</div>
+              <div className="about-visual-label">{h.label}</div>
+            </div>
+          ))}
         </div>
         <div className="about-copy" ref={copyRef} data-reveal>
-          <span className="eyebrow">About Me</span>
+          <span className="eyebrow">About Us</span>
           <h2 className="sec-title sm">{about.heading}</h2>
           <div className="about-text">
             {about.paragraphs.map((p) => (
               <p key={p}>{p}</p>
             ))}
           </div>
-          <ul className="credentials">
-            {about.credentials.map((c) => (
-              <li key={c.strong}>
-                <span className="check">✓</span>
-                <span>
-                  <strong>{c.strong}</strong> {c.rest}
-                </span>
-              </li>
-            ))}
-          </ul>
           <a href="#contact" className="btn btn-yellow">
-            Work With Me <span className="arrow">&rarr;</span>
+            Work With Us <span className="arrow">&rarr;</span>
           </a>
         </div>
       </div>

@@ -1,13 +1,13 @@
-import { approachSteps } from "../../data/portfolioData";
+import { process } from "../../data/portfolioData";
 import { useReveal } from "../../hooks/useReveal";
 
 const Approach = () => {
   const revealRef = useReveal<HTMLElement>();
   return (
-    <section id="approach" className="section approach" ref={revealRef} data-reveal>
-      <div className="flank">My Approach</div>
+    <section id="process" className="section approach" ref={revealRef} data-reveal>
+      <div className="flank">Our Process</div>
       <div className="steps">
-        {approachSteps.map((step) => (
+        {process.map((step) => (
           <div className="step" key={step.num}>
             <div className="step-num">{step.num}</div>
             <h4 className="step-label">{step.label}</h4>
@@ -15,7 +15,7 @@ const Approach = () => {
           </div>
         ))}
       </div>
-      <div className="flank">My Approach</div>
+      <div className="flank">Our Process</div>
     </section>
   );
 };

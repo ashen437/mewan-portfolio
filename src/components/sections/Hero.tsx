@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { hero } from "../../data/portfolioData";
+import { brand, hero } from "../../data/portfolioData";
 import { useReveal, useImageReveal } from "../../hooks/useReveal";
 import { cn } from "../../lib/utils";
 
@@ -8,7 +8,7 @@ const Hero = () => {
   const sqOutlineRef = useReveal<HTMLDivElement>();
   const sqFillRef = useReveal<HTMLDivElement>();
   const circleRef = useReveal<HTMLDivElement>();
-  const imgRef = useImageReveal<HTMLDivElement>();
+  const panelRef = useImageReveal<HTMLDivElement>();
 
   useEffect(() => {
     const raf = requestAnimationFrame(() => setLoaded(true));
@@ -35,13 +35,13 @@ const Hero = () => {
           <h1 className="hero-title">
             <span className="mask">
               <span className="rise" style={{ ["--d" as string]: ".05s" }}>
-                Architecture
+                Brands &amp; Stories
               </span>
             </span>
             <span className="mask">
               <span className="rise line-two" style={{ ["--d" as string]: ".18s" }}>
-                <span className="underlined">That</span>
-                <span className="outline-word">Breathes</span>
+                <span className="underlined">We Bring</span>
+                <span className="outline-word">Life</span>
               </span>
             </span>
           </h1>
@@ -49,8 +49,8 @@ const Hero = () => {
           <div className="hero-sub">
             <span className="accent-bar" aria-hidden="true"></span>
             <p>
-              I'm Marlowe Fenn — a spatial designer shaping buildings that hold light, weather,
-              and the people inside them. Quiet, sustainable, built to endure.
+              {brand.name} is a full-service production house partnering with leading brands and
+              filmmakers across Sri Lanka — from campaign strategy to the big screen.
             </p>
           </div>
 
@@ -66,7 +66,7 @@ const Hero = () => {
           <div className="hero-cta">
             <a href="#work" className="btn btn-ink wipe">
               <span className="wipe-bg" aria-hidden="true"></span>
-              <span className="lbl">Explore Work</span>
+              <span className="lbl">See Our Work</span>
               <span className="arrow">&rarr;</span>
             </a>
             <a href="#contact" className="btn btn-outline">
@@ -79,12 +79,16 @@ const Hero = () => {
           <div className="frame">
             <span className="corner tl" aria-hidden="true"></span>
             <span className="corner br" aria-hidden="true"></span>
-            <div className="img-reveal angled" ref={imgRef} data-image-reveal>
-              <img
-                src="/images/hero.jpg"
-                alt="A sunlit modern residence with deep concrete eaves"
-                loading="eager"
-              />
+            <div className="img-reveal angled" ref={panelRef} data-image-reveal>
+              <div className="hero-graphic">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="3" y="7" width="18" height="13" rx="1"></rect>
+                  <path d="M3 7l3-4h4l-3 4"></path>
+                  <path d="M10 7l3-4h4l-3 4"></path>
+                  <path d="M17 7l2-3"></path>
+                </svg>
+                <div className="hero-graphic-label">{brand.name}</div>
+              </div>
               <span className="reveal-overlay angled"></span>
             </div>
             <div className="award-card">
