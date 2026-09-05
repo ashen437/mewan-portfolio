@@ -1,8 +1,17 @@
 export const brand = {
   name: "T-Frame Media",
   tagline: "Brand & Film Production",
-  email: "hello@tframemedia.com",
+  email: "mewanliyanageofficial@gmail.com",
+  phone: "071 774 2544",
+  phoneHref: "tel:+94717742544",
+  instagram: "https://www.instagram.com/mewliyan/",
+  linkedin: "https://lk.linkedin.com/in/mewan-liyanage-0767b3254",
 };
+
+export const socialLinks = [
+  { label: "Instagram", handle: "@mewliyan", icon: "instagram" as const, href: brand.instagram },
+  { label: "LinkedIn", handle: "Mewan Liyanage", icon: "linkedin" as const, href: brand.linkedin },
+];
 
 export const navLinks = [
   { label: "Brands", href: "#brands" },
@@ -12,26 +21,26 @@ export const navLinks = [
 ];
 
 export const brandsWorkedWith = [
-  "Lux",
-  "Vaseline",
-  "Signal",
-  "Dialog",
-  "Rhino",
-  "Spar Supermarket",
-  "Moose",
-  "Muthu Karuppan Chettiyar",
-  "Sri Nadeeka Jewellery",
-  "Ashadi Jewelley",
-  "Aripico",
-  "Sanmik",
-  "LB Finance",
-  "Rich Look",
-  "Ceylon Furniture",
-  "Roop Kalaa",
-  "Nayotha",
-  "Ceyloan",
-  "Minnas Saree Point",
-  "One i",
+  { name: "Lux", logo: "/images/lux.png" },
+  { name: "Vaseline", logo: "/images/Vaseline.png" },
+  { name: "Signal", logo: "/images/Signal.png" },
+  { name: "Dialog", logo: "/images/Dialog.png" },
+  { name: "Rhino", logo: "/images/Rhino.png" },
+  { name: "Spar Supermarket", logo: "/images/SparSupermarket.png" },
+  { name: "Moose", logo: "/images/Moose.png" },
+  { name: "Muthu Karuppan Chettiyar", logo: "/images/MuthuKaruppanChettiyar.png" },
+  { name: "Sri Nadeeka Jewellery", logo: "/images/SriNadeekaJewellery.png" },
+  { name: "Ashadi Jewelley", logo: "/images/AshadiJewelley.png" },
+  { name: "Aripico", logo: "/images/Aripico.png" },
+  { name: "Sanmik", logo: "/images/Sanmik.png" },
+  { name: "LB Finance", logo: "/images/LBFinance.png" },
+  { name: "Rich Look", logo: "/images/RichLook.png" },
+  { name: "Ceylon Furniture", logo: "/images/CeylonFurniture.png" },
+  { name: "Roop Kalaa", logo: "/images/RoopKalaa.png" },
+  { name: "Nayotha", logo: "/images/Nayotha.png" },
+  { name: "Ceyloan", logo: "/images/Ceyloan.png" },
+  { name: "Minnas Saree Point", logo: "/images/MinnasSareePoint.png" },
+  { name: "One i", logo: "/images/Onei.png" },
 ];
 
 export const hero = {
@@ -132,17 +141,17 @@ export const process = [
 ];
 
 export const talent = [
-  "Shalani Tharaka",
-  "Semini Iddamalgoda",
-  "Nihari Perera",
-  "Senali Fonseka",
-  "Nethmi Roshel",
-  "Mahesha Sandamali",
-  "Sachinthani Kaushalya",
-  "Nayomi Perera",
-  "Sujani Maduwanthi",
-  "Uddika Premarathna",
-  "Nimesh Edirisinghe",
+  { name: "Shalani Tharaka", image: "/images/shalaniTharaka.png" },
+  { name: "Semini Iddamalgoda", image: "/images/SeminiIddamalgoda.png" },
+  { name: "Nihari Perera", image: "/images/NihariPerera.png" },
+  { name: "Senali Fonseka", image: "/images/SenaliFonseka.png" },
+  { name: "Nethmi Roshel", image: "/images/NethmiRoshel.png" },
+  { name: "Mahesha Sandamali", image: "/images/MaheshaSandamali.png" },
+  { name: "Sachinthani Kaushalya", image: "/images/SachinthaniKaushalya.png" },
+  { name: "Nayomi Perera", image: "/images/NayomiPerera.png" },
+  { name: "Sujani Maduwanthi", image: "/images/SujaniMaduwanthi.png" },
+  { name: "Uddika Premarathna", image: "/images/UddikaPremarathna.png" },
+  { name: "Nimesh Edirisinghe", image: "/images/NimeshEdirisinghe.png" },
 ];
 
 export const contactCta = {

@@ -1,4 +1,4 @@
-import { brand, contactCta } from "../../data/portfolioData";
+import { brand, contactCta, socialLinks } from "../../data/portfolioData";
 import { useReveal } from "../../hooks/useReveal";
 
 const ContactCTA = () => {
@@ -16,6 +16,25 @@ const ContactCTA = () => {
             View All Work
           </a>
         </div>
+
+        <ul className="contact-details">
+          <li>
+            <span className="contact-label">Email</span>
+            <a href={`mailto:${brand.email}`}>{brand.email}</a>
+          </li>
+          <li>
+            <span className="contact-label">Phone</span>
+            <a href={brand.phoneHref}>{brand.phone}</a>
+          </li>
+          {socialLinks.map((social) => (
+            <li key={social.href}>
+              <span className="contact-label">{social.label}</span>
+              <a href={social.href} target="_blank" rel="noreferrer">
+                {social.handle}
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

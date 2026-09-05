@@ -697,25 +697,50 @@ ul {
 	background: var(--accent);
 }
 
-/* ============ BRANDS ============ */
-.brand-wall {
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	gap: 1px;
+/* ============ BRANDS ORBIT MARQUEE ============ */
+.marquee-path-root {
+	position: relative;
+	width: 100%;
+	/* Tracks the 1400x558 viewBox against the wrap's inner width, so the frame
+	   ends up just tall enough for the ribbon — no letterboxing above or below. */
+	height: clamp(180px, 38vw, 478px);
+	/* Clips the path's off-frame ends, where items wrap from 100% back to 0%. */
+	overflow: hidden;
+}
+.marquee-path-inner {
+	position: relative;
+}
+.marquee-path-svg {
+	width: 100%;
+	height: 100%;
+}
+.marquee-path-item {
+	position: absolute;
+	top: 0;
+	left: 0;
+	/* `auto` (the default) turns each tile to the path tangent — that rake
+	   through the curl is the point of the effect. */
+	offset-rotate: auto;
+}
+.marquee-path-item-grab {
+	cursor: grab;
+}
+/* Square tiles packed close enough to sit shoulder to shoulder along the
+   ribbon. Logos are contained rather than cropped so each stays readable. */
+.brand-logo-card {
+	width: 126px;
+	height: 126px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: var(--paper);
 	border: 1px solid var(--ink);
-	background: var(--ink);
+	padding: 16px;
 }
-.brand-tile {
-	background: var(--surface);
-	padding: 32px 20px;
-	text-align: center;
-	font-family: var(--serif);
-	font-size: 1.15rem;
-	line-height: 1.2;
-	transition: background 0.3s var(--ease), color 0.3s var(--ease);
-}
-.brand-tile:hover {
-	background: var(--accent);
+.brand-logo-card img {
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: contain;
 }
 
 /* ============ PRODUCTIONS / CREDITS ============ */
@@ -812,23 +837,130 @@ ul {
 	font-size: 1.05rem;
 }
 
-/* ============ TALENT ============ */
-.talent-grid {
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	gap: 1px;
-	border: 1px solid var(--ink);
-	background: var(--ink);
+/* ============ TALENT / COVERFLOW CAROUSEL ============ */
+.cf-root {
+	width: 100%;
 }
-.talent-tile {
+.cf-stage {
+	position: relative;
+}
+.cf-frame {
+	cursor: grab;
+	overflow: hidden;
+	padding: 40px 0;
+	outline: none;
+	touch-action: pan-y;
+}
+.cf-frame:active {
+	cursor: grabbing;
+}
+.cf-frame:focus-visible {
+	outline: 2px solid var(--accent);
+	outline-offset: 4px;
+}
+.cf-track {
+	position: relative;
+	user-select: none;
+}
+.cf-card {
+	position: absolute;
+	left: 50%;
+	top: 0;
+	aspect-ratio: 1 / 1;
+	overflow: hidden;
 	background: var(--surface);
-	padding: 28px 18px;
-	text-align: center;
+	border: 1px solid var(--ink);
+	box-shadow: 0 24px 48px -20px rgba(10, 10, 10, 0.45);
+	will-change: transform;
 }
-.talent-name {
+.cf-card-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	user-select: none;
+}
+.cf-nav {
+	position: absolute;
+	top: 50%;
+	z-index: 200;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	transform: translateY(-50%);
+	background: var(--paper);
+	border: 1px solid var(--ink);
+	color: var(--ink);
+	cursor: pointer;
+	transition: all 0.3s var(--ease);
+}
+.cf-nav:hover {
+	background: var(--accent);
+}
+.cf-nav-prev {
+	left: 0;
+}
+.cf-nav-next {
+	right: 0;
+}
+.cf-nav-icon {
+	width: 18px;
+	height: 18px;
+}
+.cf-caption {
+	margin-top: 4px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	padding: 0 24px;
+}
+.cf-caption-title {
 	font-family: var(--serif);
-	font-size: 1.1rem;
-	line-height: 1.25;
+	font-size: 1.3rem;
+	margin: 0;
+}
+.cf-caption-subtitle {
+	margin: 6px 0 0;
+	font-size: 13px;
+	color: var(--muted);
+}
+.cf-caption-meta {
+	margin: 24px 0 0;
+	width: 100%;
+	max-width: 230px;
+	font-size: 12px;
+}
+.cf-caption-meta-row {
+	display: flex;
+	justify-content: space-between;
+	padding: 5px 0;
+}
+.cf-caption-meta-label {
+	color: var(--muted);
+}
+.cf-caption-meta-value {
+	font-weight: 500;
+}
+.cf-pagination {
+	margin-top: 24px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+}
+.cf-dot {
+	width: 7px;
+	height: 7px;
+	background: var(--ink);
+	opacity: 0.25;
+	cursor: pointer;
+	transition: opacity 0.3s var(--ease), background 0.3s var(--ease);
+}
+.cf-dot-active {
+	opacity: 1;
+	background: var(--accent);
 }
 
 /* ============ ABOUT ============ */
@@ -841,7 +973,9 @@ ul {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: 70px;
-	align-items: center;
+	/* Stretch so the image column runs flush with the copy beside it — the
+	   source is square, and the taller box crops less off the top and bottom. */
+	align-items: stretch;
 }
 .about-visual {
 	position: relative;
@@ -849,41 +983,15 @@ ul {
 	border: 1px solid var(--ink);
 	background: var(--surface);
 	overflow: hidden;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	gap: 18px;
-	padding: 40px;
 }
-.about-visual .blueprint-grid {
-	opacity: 0.12;
-}
-.about-visual-row {
-	position: relative;
-	z-index: 1;
-	display: flex;
-	align-items: baseline;
-	gap: 18px;
-	padding-bottom: 18px;
-	border-bottom: 1px solid rgba(43, 43, 43, 0.18);
-}
-.about-visual-row:last-child {
-	border-bottom: 0;
-	padding-bottom: 0;
-}
-.about-visual-num {
-	font-family: var(--serif);
-	font-size: clamp(2.4rem, 4vw, 3.2rem);
-	line-height: 1;
-	flex: none;
-	min-width: 110px;
-}
-.about-visual-label {
-	font-size: 12px;
-	font-weight: 500;
-	text-transform: uppercase;
-	letter-spacing: 0.14em;
-	color: var(--muted);
+/* Absolute fill: the box is sized by min-height, so a percentage height on the
+   image would have nothing definite to resolve against. */
+.about-visual img {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 .about-text {
 	display: flex;
@@ -1056,6 +1164,40 @@ ul {
 	margin: 24px auto 36px;
 	font-size: 1.1rem;
 }
+.contact-details {
+	list-style: none;
+	margin: 48px auto 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 20px 48px;
+}
+.contact-details li {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 6px;
+}
+.contact-label {
+	font-size: 11px;
+	text-transform: uppercase;
+	letter-spacing: 0.16em;
+	font-weight: 500;
+	color: var(--paper);
+	opacity: 0.5;
+}
+.contact-details a {
+	color: var(--paper);
+	font-size: 15px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+	padding-bottom: 2px;
+	transition: border-color 0.25s, opacity 0.25s;
+}
+.contact-details a:hover {
+	border-bottom-color: var(--paper);
+	opacity: 0.85;
+}
 
 /* ============ FOOTER ============ */
 .site-footer {
@@ -1157,10 +1299,6 @@ ul {
 	.focus-grid {
 		grid-template-columns: 1fr;
 	}
-	.brand-wall,
-	.talent-grid {
-		grid-template-columns: repeat(3, 1fr);
-	}
 	.credit-grid {
 		grid-template-columns: 1fr 1fr;
 	}
@@ -1209,10 +1347,6 @@ ul {
 	.burger {
 		display: flex;
 	}
-	.brand-wall,
-	.talent-grid {
-		grid-template-columns: repeat(2, 1fr);
-	}
 	.credit-grid {
 		grid-template-columns: 1fr;
 	}
@@ -1256,10 +1390,6 @@ ul {
 	}
 	.hero-stats {
 		max-width: 100%;
-	}
-	.brand-wall,
-	.talent-grid {
-		grid-template-columns: 1fr;
 	}
 	.stats-grid {
 		grid-template-columns: 1fr;
