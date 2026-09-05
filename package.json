@@ -4,6 +4,7 @@
   "license": "MIT",
   "type": "module",
   "dependencies": {
+    "gsap": "^3.13.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },

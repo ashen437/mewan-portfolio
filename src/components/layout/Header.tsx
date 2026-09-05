@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { gsap } from "gsap";
+import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { brand, navLinks } from "../../data/portfolioData";
 import { cn } from "../../lib/utils";
 
@@ -7,10 +9,14 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const update = () => {
+      const smoother = ScrollSmoother.get();
+      const y = smoother ? smoother.scrollTop() : window.scrollY;
+      setScrolled(y > 10);
+    };
+    update();
+    gsap.ticker.add(update);
+    return () => gsap.ticker.remove(update);
   }, []);
 
   const closeMenu = () => setOpen(false);
@@ -18,7 +24,9 @@ const Header = () => {
   const scrollToTop = (e: React.MouseEvent) => {
     e.preventDefault();
     closeMenu();
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    const smoother = ScrollSmoother.get();
+    if (smoother) smoother.scrollTo(0, true);
+    else window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (

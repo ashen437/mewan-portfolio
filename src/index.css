@@ -43,8 +43,14 @@
 * {
 	box-sizing: border-box;
 }
-html {
-	scroll-behavior: smooth;
+#smooth-wrapper {
+	position: fixed;
+	inset: 0;
+	overflow: hidden;
+}
+#smooth-content {
+	overflow: visible;
+	width: 100%;
 }
 body {
 	margin: 0;
@@ -1158,6 +1164,19 @@ ul {
 	}
 	.scroll-indicator {
 		display: none;
+	}
+	.sq-outline,
+	.circle-outline {
+		display: none;
+	}
+	.sq-fill {
+		top: 16px;
+		bottom: auto;
+		left: auto;
+		right: 6%;
+		width: 56px;
+		height: 56px;
+		z-index: 0;
 	}
 }
 @media (max-width: 720px) {
