@@ -15,6 +15,12 @@ const Header = () => {
 
   const closeMenu = () => setOpen(false);
 
+  const scrollToTop = (e: React.MouseEvent) => {
+    e.preventDefault();
+    closeMenu();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <header
       className="site-header"
@@ -22,7 +28,7 @@ const Header = () => {
       style={{ boxShadow: scrolled ? "0 1px 0 rgba(43,43,43,.15)" : "none" }}
     >
       <nav className="nav wrap">
-        <a className="logo" href="#top">
+        <a className="logo" href="#top" onClick={scrollToTop}>
           {brand.name}
         </a>
         <ul className="nav-links">
