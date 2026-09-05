@@ -1298,6 +1298,11 @@ ul {
 	.circle-outline {
 		display: none;
 	}
+	/* Stacked layout puts .hero-right flush against the wrap's left edge, so
+	   this accent's -40px offset would run past the viewport and get clipped. */
+	.ghost-square {
+		display: none;
+	}
 	.sq-fill {
 		top: 16px;
 		bottom: auto;
