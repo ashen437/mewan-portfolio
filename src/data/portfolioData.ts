@@ -57,27 +57,27 @@ export const productionCredits = [
   {
     role: "Executive Producer",
     items: [
-      { title: "Aththamai Mang Oyata Adarei", type: "Drama" },
-      { title: "Premiye", type: "Movie" },
+      { title: "Aththamai Mang Oyata Adarei", type: "Drama", image: "/images/AththamaiMangOyataAdarei.png" },
+      { title: "Premiye", type: "Movie", image: "/images/Premiye.png" },
     ],
   },
   {
     role: "Line Producer",
     items: [
-      { title: "Piszoo", type: "Movie" },
-      { title: "Rosa Wedilla", type: "Drama" },
+      { title: "Piszoo", type: "Movie", image: "/images/Piszoo.png" },
+      { title: "Rosa Wedilla", type: "Drama", image: "/images/RosaWedilla.png" },
     ],
   },
   {
     role: "Casting Director & Head of Digital Marketing",
-    items: [{ title: "Eda Raa", type: "Movie" }],
+    items: [{ title: "Eda Raa", type: "Movie", image: "/images/EdaRaa.png" }],
   },
   {
     role: "Head of Digital & Distribution",
     items: [
-      { title: "Kannagi", type: "Movie" },
-      { title: "Saraa Susum", type: "Movie" },
-      { title: "Premiye", type: "Movie" },
+      { title: "Kannagi", type: "Movie", image: "/images/kannagi.png" },
+      { title: "Saraa Susum", type: "Movie", image: "/images/SaraaSusum.png" },
+      { title: "Premiye", type: "Movie", image: "/images/Premiye.png" },
     ],
   },
 ];
