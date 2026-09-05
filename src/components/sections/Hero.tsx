@@ -24,14 +24,6 @@ const Hero = () => {
 
       <div className="wrap hero-inner">
         <div className="hero-left">
-          <div className="status">
-            <div className="status-tick">
-              <span className="dot"></span>
-              <span className="line"></span>
-            </div>
-            <span className="status-label">{hero.statusLabel}</span>
-          </div>
-
           <h1 className="hero-title">
             <span className="mask">
               <span className="rise" style={{ ["--d" as string]: ".05s" }}>

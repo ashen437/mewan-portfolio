@@ -44,7 +44,6 @@ export const brandsWorkedWith = [
 ];
 
 export const hero = {
-  statusLabel: "Now Booking Productions — 2026",
   stats: [
     { num: `${brandsWorkedWith.length}+`, cap: "Brands Partnered" },
     { num: "7+", cap: "Productions Delivered" },
@@ -101,9 +100,9 @@ export const businessPartnerships = [
 export const about = {
   heading: "A Full-Service Production House",
   paragraphs: [
-    "T-Frame Media is a Sri Lankan production company working across brand campaigns, television drama, and feature film — carrying projects from strategy and casting through to production and distribution.",
-    "We partner with consumer brands on marketing consultancy and campaign production, and with filmmakers as executive producers, line producers, and distribution leads — bringing the same discipline to a supermarket campaign as we do to a feature film release.",
-    "Every credit on this page reflects a project we saw through, not just signed onto — from the first brief to the final cut.",
+    "T-Frame Media is a Sri Lankan production company working across brand campaigns, television drama, and feature film; carrying projects from strategy and casting through to production and distribution.",
+    "We partner with consumer brands on marketing consultancy and campaign production, and with filmmakers as executive producers, line producers, and distribution leads; bringing the same discipline to a supermarket campaign as we do to a feature film release.",
+    "Every credit on this page reflects a project we saw through, not just signed onto; from the first brief to the final cut.",
   ],
   highlights: [
     { num: `${brandsWorkedWith.length}+`, label: "Brand Partnerships" },

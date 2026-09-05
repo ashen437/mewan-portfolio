@@ -299,11 +299,11 @@ ul {
 /* ============ HERO ============ */
 .hero {
 	position: relative;
-	min-height: 100vh;
+	min-height: 100svh;
 	display: flex;
 	align-items: center;
 	overflow: hidden;
-	padding: 130px 0 90px;
+	padding: clamp(96px, 12vh, 130px) 0 clamp(72px, 9vh, 90px);
 }
 .blueprint-grid {
 	position: absolute;
@@ -357,50 +357,7 @@ ul {
 .hero-left {
 	display: flex;
 	flex-direction: column;
-	gap: 26px;
-}
-
-.status {
-	display: flex;
-	gap: 16px;
-	align-items: flex-start;
-}
-.status-tick {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 8px;
-}
-.dot {
-	width: 12px;
-	height: 12px;
-	border-radius: 50%;
-	background: var(--accent);
-	border: 2px solid var(--ink);
-	animation: dotPulse 2.2s ease-in-out infinite;
-}
-.status-tick .line {
-	width: 1px;
-	height: 34px;
-	background: var(--ink);
-	opacity: 0.3;
-}
-.status-label {
-	font-size: 11px;
-	font-weight: 500;
-	text-transform: uppercase;
-	letter-spacing: 0.22em;
-	padding-top: 1px;
-}
-@keyframes dotPulse {
-	0%,
-	100% {
-		box-shadow: 0 0 0 0 rgba(255, 61, 0, 0.6);
-	}
-	50% {
-		box-shadow: 0 0 0 7px rgba(255, 61, 0, 0);
-		transform: scale(1.12);
-	}
+	gap: clamp(16px, 2.6vh, 26px);
 }
 
 .hero-title {
@@ -414,7 +371,7 @@ ul {
 }
 .rise {
 	display: inline-block;
-	font-size: clamp(3.4rem, 10vw, 7.6rem);
+	font-size: clamp(3.4rem, min(9.4vw, 12.4vh), 7.6rem);
 	transform: translateY(110%);
 	transition: transform 0.9s var(--ease) var(--d, 0s);
 }
@@ -457,7 +414,7 @@ ul {
 	background: var(--accent);
 }
 .hero-sub p {
-	font-size: 1.15rem;
+	font-size: clamp(1rem, 1.6vh, 1.15rem);
 	color: var(--muted);
 	margin: 0;
 }
@@ -549,10 +506,10 @@ ul {
 	object-fit: cover;
 }
 .hero-right .img-reveal img {
-	height: clamp(440px, 60vh, 600px);
+	height: clamp(380px, 56vh, 600px);
 }
 .hero-right .img-reveal {
-	height: clamp(440px, 60vh, 600px);
+	height: clamp(380px, 56vh, 600px);
 }
 .reveal-overlay {
 	position: absolute;
