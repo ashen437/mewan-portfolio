@@ -299,11 +299,11 @@ ul {
 /* ============ HERO ============ */
 .hero {
 	position: relative;
-	min-height: 100svh;
+	min-height: 100vh;
 	display: flex;
 	align-items: center;
 	overflow: hidden;
-	padding: clamp(96px, 12vh, 130px) 0 clamp(72px, 9vh, 90px);
+	padding: 130px 0 90px;
 }
 .blueprint-grid {
 	position: absolute;
@@ -357,7 +357,7 @@ ul {
 .hero-left {
 	display: flex;
 	flex-direction: column;
-	gap: clamp(16px, 2.6vh, 26px);
+	gap: 26px;
 }
 
 .hero-title {
@@ -371,7 +371,7 @@ ul {
 }
 .rise {
 	display: inline-block;
-	font-size: clamp(3.4rem, min(9.4vw, 12.4vh), 7.6rem);
+	font-size: clamp(3.4rem, 10vw, 7.6rem);
 	transform: translateY(110%);
 	transition: transform 0.9s var(--ease) var(--d, 0s);
 }
@@ -414,7 +414,7 @@ ul {
 	background: var(--accent);
 }
 .hero-sub p {
-	font-size: clamp(1rem, 1.6vh, 1.15rem);
+	font-size: 1.15rem;
 	color: var(--muted);
 	margin: 0;
 }
@@ -506,10 +506,10 @@ ul {
 	object-fit: cover;
 }
 .hero-right .img-reveal img {
-	height: clamp(380px, 56vh, 600px);
+	height: clamp(440px, 60vh, 600px);
 }
 .hero-right .img-reveal {
-	height: clamp(380px, 56vh, 600px);
+	height: clamp(440px, 60vh, 600px);
 }
 .reveal-overlay {
 	position: absolute;
@@ -795,6 +795,14 @@ ul {
 }
 
 /* ============ TALENT / COVERFLOW CAROUSEL ============ */
+/* Every other section closes on a card grid, so its last row of artwork sits
+   one section padding above the edge. Here the caption and the dots sit below
+   the artwork instead, and the full padding lands under them — which read as
+   an extra ~100px of bottom padding. Pull it back so the gap under the cards
+   matches the rest of the page. */
+.section.testimonials {
+	padding-bottom: clamp(28px, 3vw, 44px);
+}
 .cf-root {
 	width: 100%;
 }
@@ -804,7 +812,11 @@ ul {
 .cf-frame {
 	cursor: grab;
 	overflow: hidden;
-	padding: 40px 0;
+	/* Clearance for the card drop shadow, which is offset straight down
+	   (0 24px 48px -20px) and so reaches ~28px below the track and nothing
+	   above it. An even 40px band left dead space over the cards and stacked
+	   under them with the caption and dots. */
+	padding: 4px 0 30px;
 	outline: none;
 	touch-action: pan-y;
 }
@@ -901,7 +913,7 @@ ul {
 	font-weight: 500;
 }
 .cf-pagination {
-	margin-top: 24px;
+	margin-top: 18px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
