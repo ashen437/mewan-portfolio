@@ -42,7 +42,7 @@ const Hero = () => {
             <span className="accent-bar" aria-hidden="true"></span>
             <p>
               {brand.name} is a full-service production house partnering with leading brands and
-              filmmakers across Sri Lanka — from campaign strategy to the big screen.
+              filmmakers across Sri Lanka from campaign strategy to the big screen.
             </p>
           </div>
 
