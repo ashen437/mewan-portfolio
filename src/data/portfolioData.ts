@@ -10,8 +10,8 @@ export const brand = {
 };
 
 export const socialLinks = [
-  { label: "Instagram", handle: "@mewliyan", icon: "instagram" as const, href: brand.instagram },
   { label: "Facebook", handle: "Mewan Liyanage", icon: "facebook" as const, href: brand.facebook },
+  { label: "Instagram", handle: "@mewliyan", icon: "instagram" as const, href: brand.instagram },
   { label: "LinkedIn", handle: "Mewan Liyanage", icon: "linkedin" as const, href: brand.linkedin },
 ];
 
