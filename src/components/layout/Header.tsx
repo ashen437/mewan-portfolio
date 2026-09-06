@@ -36,8 +36,8 @@ const Header = () => {
       style={{ boxShadow: scrolled ? "0 1px 0 rgba(43,43,43,.15)" : "none" }}
     >
       <nav className="nav wrap">
-        <a className="logo" href="#top" onClick={scrollToTop}>
-          {brand.name}
+        <a className="logo" href="#top" onClick={scrollToTop} aria-label={`${brand.name} — home`}>
+          <img className="logo-mark" src="/images/logo-mark.png" alt={brand.name} />
         </a>
         <ul className="nav-links">
           {navLinks.map((link) => (

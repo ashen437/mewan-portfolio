@@ -42,8 +42,8 @@ const Footer = () => {
         </div>
         <h6 className="foot-tag">{brand.tagline}</h6>
         <p className="foot-desc">
-          A full-service production house for brand campaigns, television drama and feature film
-          — from strategy and casting to production and distribution.
+          A full-service production house for brand campaigns, television drama and feature film, 
+          from strategy and casting to production and distribution.
         </p>
       </div>
 
