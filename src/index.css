@@ -941,6 +941,122 @@ ul {
 	background: var(--accent);
 }
 
+/* ============ VIDEO GALLERY (PROJECTS) ============ */
+/* Extra clearance below the heading — the floating cards drift with the
+   cursor and would otherwise be able to creep up over the title. */
+.projects .sec-head {
+	margin-bottom: 150px;
+}
+.floating-root {
+	position: relative;
+}
+.floating-element {
+	will-change: transform;
+}
+
+.gallery-stage {
+	columns: 4;
+	column-gap: 20px;
+}
+.gallery-card-wrap {
+	display: block;
+	width: 100%;
+	break-inside: avoid;
+	margin-bottom: 20px;
+}
+.gallery-card {
+	display: block;
+	width: 100%;
+	padding: 0;
+	border: 1px solid var(--ink);
+	background: var(--surface);
+	font: inherit;
+	color: inherit;
+	text-align: left;
+	text-decoration: none;
+	cursor: pointer;
+	transition: all 0.3s var(--ease);
+}
+.gallery-card:hover {
+	background: var(--surface-2);
+	transform: translateY(-4px);
+	box-shadow: 6px 6px 0 var(--ink);
+}
+.gallery-card:focus-visible {
+	outline: 2px solid var(--accent);
+	outline-offset: 2px;
+}
+.gallery-card-media {
+	position: relative;
+	display: block;
+	width: 100%;
+	overflow: hidden;
+	background: var(--ink);
+}
+.gallery-card-media img {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 0.5s var(--ease);
+}
+.gallery-card:hover .gallery-card-media img {
+	transform: scale(1.07);
+}
+.gallery-card-fallback {
+	position: absolute;
+	inset: 0;
+	display: block;
+	background: linear-gradient(160deg, #2a2a2a, var(--ink));
+}
+.gallery-tag {
+	position: absolute;
+	top: 12px;
+	left: 12px;
+	font-size: 10px;
+	font-weight: 500;
+	text-transform: uppercase;
+	letter-spacing: 0.14em;
+	padding: 5px 12px;
+	border: 1px solid var(--ink);
+	background: var(--accent);
+	color: var(--ink);
+}
+.gallery-play {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 52px;
+	height: 52px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: var(--paper);
+	border: 1px solid var(--ink);
+	border-radius: 50%;
+	transform: translate(-50%, -50%) scale(0.92);
+	opacity: 0.9;
+	transition: all 0.3s var(--ease);
+}
+.gallery-card:hover .gallery-play {
+	background: var(--accent);
+	transform: translate(-50%, -50%) scale(1.08);
+	opacity: 1;
+}
+.gallery-play-icon {
+	width: 18px;
+	height: 18px;
+	margin-left: 2px;
+	color: var(--ink);
+}
+.gallery-card-title {
+	display: block;
+	padding: 14px 16px 16px;
+	font-size: 0.95rem;
+	font-weight: 500;
+}
+
 /* ============ ABOUT ============ */
 .about {
 	background: var(--surface);
@@ -1283,6 +1399,9 @@ ul {
 	.partners-grid {
 		grid-template-columns: 1fr;
 	}
+	.gallery-stage {
+		columns: 2;
+	}
 	.approach {
 		flex-direction: column;
 		align-items: stretch;
@@ -1332,6 +1451,9 @@ ul {
 	}
 	.credit-grid {
 		grid-template-columns: 1fr;
+	}
+	.gallery-stage {
+		columns: 1;
 	}
 	.stats-grid {
 		grid-template-columns: 1fr 1fr;

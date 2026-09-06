@@ -2,6 +2,7 @@ import Hero from "../../components/sections/Hero";
 import StatsStrip from "../../components/sections/StatsStrip";
 import Brands from "../../components/sections/Brands";
 import Work from "../../components/sections/Work";
+import Projects from "../../components/sections/Projects";
 import Partnerships from "../../components/sections/Partnerships";
 import About from "../../components/sections/About";
 import DesignFocus from "../../components/sections/DesignFocus";
@@ -16,6 +17,7 @@ const HomePage = () => {
       <StatsStrip />
       <Brands />
       <Work />
+      <Projects />
       <Partnerships />
       <About />
       <DesignFocus />

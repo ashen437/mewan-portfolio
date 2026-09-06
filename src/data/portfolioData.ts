@@ -18,6 +18,7 @@ export const socialLinks = [
 export const navLinks = [
   { label: "Brands", href: "#brands" },
   { label: "Work", href: "#work" },
+  { label: "Projects", href: "#projects" },
   { label: "Talent", href: "#talent" },
   { label: "Contact", href: "#contact" },
 ];
@@ -89,6 +90,176 @@ export const productionCredits = [
       { title: "Saraa Susum", type: "Movie", image: "/images/SaraaSusum.png" },
       { title: "Premiye", type: "Movie", image: "/images/Premiye.png" },
     ],
+  },
+];
+
+export type VideoPlatform = "youtube" | "facebook";
+
+export interface GalleryVideo {
+  id: string;
+  platform: VideoPlatform;
+  title: string;
+  tag: string;
+  /** Original watch page — opened in a new tab when the card is clicked. */
+  url: string;
+  /** YouTube thumbnail image; Facebook videos fall back to a text card. */
+  thumbnail?: string;
+  /** width / height, used to size the card before the thumbnail loads. */
+  aspectRatio: number;
+  /** Parallax intensity for the floating gallery — higher drifts further from the cursor. */
+  depth: number;
+}
+
+export const videoGallery: GalleryVideo[] = [
+  {
+    id: "ashadi-jewellers",
+    platform: "youtube",
+    title: "Ashadi Jewellers — We Design Your Style",
+    tag: "Brand Film",
+    url: "https://www.youtube.com/watch?v=AFf_WPVGX9M",
+    thumbnail: "https://img.youtube.com/vi/AFf_WPVGX9M/hqdefault.jpg",
+    aspectRatio: 560 / 315,
+    depth: 2,
+  },
+  {
+    id: "sri-nadeeka-jewellery",
+    platform: "youtube",
+    title: "Sri Nadeeka Jewellery — Collection Showcase",
+    tag: "Brand Film",
+    url: "https://www.youtube.com/watch?v=zH5QzICgO8k",
+    thumbnail: "https://img.youtube.com/vi/zH5QzICgO8k/hqdefault.jpg",
+    aspectRatio: 560 / 315,
+    depth: 3,
+  },
+  {
+    id: "kimada-nube-nawe",
+    platform: "facebook",
+    title: "Kimada Nube Nawe — Film Song Premiere",
+    tag: "Film Promo",
+    url: "https://www.facebook.com/mewanliyanageofficial/videos/1584152259967791/",
+    thumbnail: "/images/videos/kimada-nube-nawe.jpg",
+    aspectRatio: 380 / 476,
+    depth: 1,
+  },
+  {
+    id: "production-highlight",
+    platform: "facebook",
+    title: "Production Highlight Reel",
+    tag: "Behind the Scenes",
+    url: "https://www.facebook.com/mewanliyanageofficial/videos/1149553843350862/",
+    thumbnail: "/images/videos/production-highlight.jpg",
+    aspectRatio: 266 / 476,
+    depth: 2.5,
+  },
+  {
+    id: "on-set",
+    platform: "facebook",
+    title: "On Set — Commercial Shoot",
+    tag: "Behind the Scenes",
+    url: "https://www.facebook.com/mewanliyanageofficial/videos/1033810248433505/",
+    thumbnail: "/images/videos/on-set.jpg",
+    aspectRatio: 264 / 476,
+    depth: 1.5,
+  },
+  {
+    id: "teaser",
+    platform: "facebook",
+    title: "Teaser — Something's Coming",
+    tag: "Teaser",
+    url: "https://www.facebook.com/mewanliyanageofficial/videos/248816967720637/",
+    thumbnail: "/images/videos/teaser.jpg",
+    aspectRatio: 560 / 314,
+    depth: 3,
+  },
+  {
+    id: "featured-reel",
+    platform: "facebook",
+    title: "Featured Reel",
+    tag: "Reel",
+    url: "https://www.facebook.com/reel/234527529548869/",
+    thumbnail: "/images/videos/featured-reel.jpg",
+    aspectRatio: 267 / 476,
+    depth: 2,
+  },
+  {
+    id: "shimmer-bridal",
+    platform: "facebook",
+    title: "Shimmer Bridal — Kandyan Bride Styling",
+    tag: "Brand Film",
+    url: "https://www.facebook.com/mewanliyanageofficial/videos/961766884905901/",
+    thumbnail: "/images/videos/shimmer-bridal.jpg",
+    aspectRatio: 560 / 314,
+    depth: 1,
+  },
+  {
+    id: "the-grip",
+    platform: "facebook",
+    title: "The Grip — Short Film",
+    tag: "Short Film",
+    url: "https://www.facebook.com/mewanliyanageofficial/videos/652866589276718/",
+    thumbnail: "/images/videos/the-grip.jpg",
+    aspectRatio: 560 / 314,
+    depth: 2.5,
+  },
+  {
+    id: "spar-wattala",
+    platform: "facebook",
+    title: "SPAR Supermarket Wattala — Launch Campaign",
+    tag: "Brand Film",
+    url: "https://www.facebook.com/mewanliyanageofficial/videos/1095636241009074/",
+    thumbnail: "/images/videos/spar-wattala.jpg",
+    aspectRatio: 560 / 314,
+    depth: 1.5,
+  },
+  {
+    id: "womens-day",
+    platform: "facebook",
+    title: "International Women's Day — Short Film",
+    tag: "Short Film",
+    url: "https://www.facebook.com/mewanliyanageofficial/videos/491419135980957/",
+    thumbnail: "/images/videos/womens-day.jpg",
+    aspectRatio: 560 / 314,
+    depth: 3,
+  },
+  {
+    id: "aruthbara-premaya",
+    platform: "facebook",
+    title: "Aruthbara Premaya — Short Film",
+    tag: "Short Film",
+    url: "https://www.facebook.com/mewanliyanageofficial/videos/523950799060072/",
+    thumbnail: "/images/videos/aruthbara-premaya.jpg",
+    aspectRatio: 560 / 314,
+    depth: 2,
+  },
+  {
+    id: "new-tvc",
+    platform: "facebook",
+    title: "New TVC — Brand Commercial",
+    tag: "Brand Film",
+    url: "https://www.facebook.com/mewanliyanageofficial/videos/10221519784969884/",
+    thumbnail: "/images/videos/new-tvc.jpg",
+    aspectRatio: 560 / 314,
+    depth: 1.5,
+  },
+  {
+    id: "zmessenger-promo",
+    platform: "facebook",
+    title: "zMessenger — Promo Shoot",
+    tag: "Behind the Scenes",
+    url: "https://www.facebook.com/mewanliyanageofficial/videos/10214748493011817/",
+    thumbnail: "/images/videos/zmessenger-promo.jpg",
+    aspectRatio: 560 / 314,
+    depth: 2.5,
+  },
+  {
+    id: "oswold-green-tea",
+    platform: "facebook",
+    title: "OSWOLD Green Tea — TVC",
+    tag: "Brand Film",
+    url: "https://www.facebook.com/mewanliyanageofficial/videos/10215699317621838/",
+    thumbnail: "/images/videos/oswold-green-tea.jpg",
+    aspectRatio: 560 / 314,
+    depth: 3,
   },
 ];
 
