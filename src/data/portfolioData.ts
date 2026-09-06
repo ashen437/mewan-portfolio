@@ -6,10 +6,12 @@ export const brand = {
   phoneHref: "tel:+94717742544",
   instagram: "https://www.instagram.com/mewliyan/",
   linkedin: "https://lk.linkedin.com/in/mewan-liyanage-0767b3254",
+  facebook: "https://web.facebook.com/mewanliyanageofficial",
 };
 
 export const socialLinks = [
   { label: "Instagram", handle: "@mewliyan", icon: "instagram" as const, href: brand.instagram },
+  { label: "Facebook", handle: "Mewan Liyanage", icon: "facebook" as const, href: brand.facebook },
   { label: "LinkedIn", handle: "Mewan Liyanage", icon: "linkedin" as const, href: brand.linkedin },
 ];
 
