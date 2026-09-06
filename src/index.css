@@ -1402,6 +1402,9 @@ ul {
 	.gallery-stage {
 		columns: 2;
 	}
+	.projects .sec-head {
+		margin-bottom: 90px;
+	}
 	.approach {
 		flex-direction: column;
 		align-items: stretch;
@@ -1454,6 +1457,9 @@ ul {
 	}
 	.gallery-stage {
 		columns: 1;
+	}
+	.projects .sec-head {
+		margin-bottom: 56px;
 	}
 	.stats-grid {
 		grid-template-columns: 1fr 1fr;

@@ -39,16 +39,22 @@ const Floating = ({ children, className, sensitivity = 1, easingFactor = 0.05 }:
     >()
   );
   const mousePositionRef = useMousePositionRef(containerRef);
-  const reducedMotionRef = useRef(false);
+  // Also covers touch devices: without a persistent hover, a global `touchmove`
+  // (fired by ordinary scroll swipes anywhere on the page) would otherwise drag
+  // the cards toward whatever coordinate the last scroll gesture touched.
+  const disableParallaxRef = useRef(false);
 
   useEffect(() => {
-    const query = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const queries = [
+      window.matchMedia("(prefers-reduced-motion: reduce)"),
+      window.matchMedia("(pointer: coarse)"),
+    ];
     const update = () => {
-      reducedMotionRef.current = query.matches;
+      disableParallaxRef.current = queries.some((query) => query.matches);
     };
     update();
-    query.addEventListener("change", update);
-    return () => query.removeEventListener("change", update);
+    queries.forEach((query) => query.addEventListener("change", update));
+    return () => queries.forEach((query) => query.removeEventListener("change", update));
   }, []);
 
   const registerElement = useCallback((id: string, element: HTMLDivElement, depth: number) => {
@@ -60,7 +66,7 @@ const Floating = ({ children, className, sensitivity = 1, easingFactor = 0.05 }:
   }, []);
 
   useAnimationFrame(() => {
-    if (!containerRef.current || reducedMotionRef.current) return;
+    if (!containerRef.current || disableParallaxRef.current) return;
 
     elementsMap.current.forEach((data) => {
       const strength = (data.depth * sensitivity) / 20;
